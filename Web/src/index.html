@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="amdb">
+<head>
+    <title ng-bind="pageTitle"></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+    <% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script>
+    <% }); %>
+
+</head>
+<body>
+    <div style="height:100%;width:100%;" ui-view />
+</body>
+
+</html>
