@@ -1,8 +1,7 @@
 {
-    "author": "Lambent Studios LLC",
-    "name": "bigbluster-web",
+    "author": "Eric Nograles",
+    "name": "AgileMovieDB",
     "version": "0.1.0",
-    "homepage": "http://www.lambentstudios.com",
     "licenses": {
         "type": "MIT",
         "url": "https://raw.github.com/joshdmiller/ng-boilerplate/master/LICENSE"
@@ -10,7 +9,7 @@
     "bugs": "https://github.com/joshdmiller/ng-boilerplate/issues",
     "repository": {
         "type": "git",
-        "url": "git@github.com:joshdmiller/ng-boilerplate.git"
+        "url": "git@github.com:ericnograles/agilemoviedb.git"
     },
     "dependencies": {
         "connect": "~2.12.0"
