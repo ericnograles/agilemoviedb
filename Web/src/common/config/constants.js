@@ -1,13 +1,15 @@
 angular.module('amdb.constants', [])
-    .constant("END_POINTS", {
-        getProfile: "/api/getProfile/"
-    })
-    .constant("PLATFORM_CONSTANTS", {
-        platformType: {
-            pc: 'pc',
-            ps3: 'ps3',
-            ps4: 'ps4',
-            xBoxOne: 'xb1'
+    .constant('END_POINTS', {
+        search: {
+            searchAMDB: '/api/search/'
+        },
+        movie: {
+            getMovie: '/api/movie/:id',
+            createMovie: '/api/movie'
+        },
+        actor: {
+            getActor: '/api/actor/:id',
+            createActor: '/api/actor'
         }
     })
     .constant("LOGGED_IN_EVENT", "event:loggedIn")

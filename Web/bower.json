@@ -8,7 +8,8 @@
     "angular-bootstrap": "~0.3.0",
     "angular-ui-router": "0.2.7",
     "angular-ui-utils": "0.0.3",
-    "angular-resource": "1.2.9"
+    "angular-resource": "1.2.9",
+    "underscore": "~1.6.0"
   },
   "dependencies": {},
   "resolutions": {
