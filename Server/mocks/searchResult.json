@@ -1,0 +1,40 @@
+{
+	searchText: 'Coppola'
+	movies:[
+		{
+			name: 'The Godfather',
+			releaseDate: '1979-03-02',
+			cast:[
+				{
+					firstName: 'Al',
+					lastName: 'Pacino',
+					role: 'Michael Corleone'
+				}
+			],
+			crew:[
+				{
+					firstName: 'Francis',
+					lastName: 'Ford Coppola',
+					role: 'Director'
+				}
+			]
+			
+		}
+	],
+	moviePersons: [
+		{
+			firstName: 'Francis',
+			lastName: 'Ford Coppola',
+			dateOfBirth: '1963-02-21',
+			nationality: 'Italian',
+			grossEarnings: 34000000.00
+		},
+		{
+			firstName: 'Sofia',
+			lastName: 'Coppola',
+			dateOfBirth: '1977-02-21',
+			nationality: 'Italian',
+			grossEarnings: 12000000.00
+		}
+	]
+}
