@@ -7,10 +7,13 @@
     "bcrypt": "^0.7.8",
     "ejs": "0.8.4",
     "grunt": "0.4.1",
+    "node-mongo-seeds": "^1.0.13",
     "optimist": "0.3.4",
+    "promise": "^5.0.0",
     "sails": "0.9.16",
     "sails-disk": "~0.9.0",
-    "sails-mongo": "^0.9.8"
+    "sails-mongo": "^0.9.8",
+    "underscore": "^1.6.0"
   },
   "scripts": {
     "start": "node app.js",

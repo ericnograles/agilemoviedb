@@ -1,3 +1,4 @@
+var PersonDTO = require('../dto/PersonDTO');
 /**
  * The Person model
  */
@@ -17,7 +18,20 @@ var Person = {
             required: true
         },
         nationality: 'STRING',
-        grossEarnings: 'DOUBLE'
+        grossEarnings: 'DOUBLE',
+
+        /**
+         * Convert an instance of this model to a DTO
+         */
+        toDTO: function() {
+            var dto = new PersonDTO();
+            dto.firstName = this.firstName;
+            dto.lastName = this.lastName;
+            dto.dateOfBirth = this.dateOfBirth;
+            dto.nationality = this.nationality;
+            dto.grossEarnings = this.grossEarnings;
+            return dto;
+        }
     }
 };
 

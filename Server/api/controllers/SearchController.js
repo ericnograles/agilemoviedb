@@ -1,3 +1,6 @@
+var SearchManager = require('../managers/SearchManager');
+var SearchResultDTO = require('../dto/SearchResultDTO');
+
 /**
  * SearchController
  *
@@ -20,14 +23,30 @@ module.exports = {
   
   /**
    * Action blueprints:
-   *    `/search/byActorOrMovie`
+   *    `/search/byActorOrMovie/{someSearchText}`
    */
    byActorOrMovie: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'byActorOrMovie'
-    });
+      var searchManager = new SearchManager();
+      var searchResultDto = new SearchResultDTO();
+
+      // Search by movies, then by persons
+      searchManager.searchByMovie(req.params.id).then(
+          function(movieDtos) {
+              searchResultDto.fromMovieDtos(movieDtos);
+              searchManager.searchByPersonText(req.params.id).then(
+                  function(personDtos) {
+                      searchResultDto.fromPersonDtos(personDtos);
+                      return res.json(searchResultDto);
+                  },
+                  function(error){
+                      return res.json('Oh snap, something horrible happened.');
+                  }
+              )
+          },
+          function(error) {
+              return res.json('Oh snap, something horrible happened.');
+          }
+      )
   },
 
 
