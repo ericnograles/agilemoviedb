@@ -7,6 +7,7 @@ This is a sample learning application to demonstrate the capabilities of the MEA
 1. Clone repo
 2. Go to /Server in a command line and run __npm install__
 3. Go to /Web in a command line and run __npm install__
+4. Install [MongoDB](http://www.mongodb.org/downloads) locally
  
 # Running the Application #
 1. Go to /Server in a command line and run __sails lift__
