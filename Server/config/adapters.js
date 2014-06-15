@@ -23,7 +23,9 @@ module.exports.adapters = {
         module: 'sails-mongo',
         host: '127.0.0.1',
         port: 27017,
-        database: 'AMDB'
+        database: 'AMDB',
+        user: '',
+        password: ''
     },
 
   // Persistent adapter for DEVELOPMENT ONLY

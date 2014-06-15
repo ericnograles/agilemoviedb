@@ -8,7 +8,13 @@
     {
         "name": "Star Wars",
         "releaseDate": "1977-01-21T18:25:43-05:00",
-        "rating": "R",
+        "rating": "PG-13",
         "grossEarnings": 1400000000.00
+    },
+    {
+        "name": "Monty Python and the Quest for the Holy Grail",
+        "releaseDate": "1972-01-21T18:25:43-05:00",
+        "rating": "R",
+        "grossEarnings": 700000000.00
     }
 ]
