@@ -3,15 +3,16 @@ AgileMovieDB: One MEAN Application
 
 This is a sample learning application to demonstrate the capabilities of the MEAN (Mongo, Express, AngularJS, Node.js) stack of web application development.
 
-# Required Software #
+# Install Required Software #
 1. [Node.js](http://www.nodejs.org) (for *nix systems, don't forget to install npm)
 2. [MongoDB](http://www.mongodb.org/downloads)
 
-# Prerequisites #
+# Prerequisite Steps #
 1. Clone repo
-2. Go to /Server in a command line and run __sudo npm install__
-3. Go to /Server/seeds.  Run __node seed.js__
-4. Go to /Web in a command line and run __sudo npm install__
+2. In a command line run __sudo npm install -g bower grunt-cli karma__ (*nix systems) or __npm npm install -g bower grunt-cli karma__
+3. Go to /Server in a command line and run __sudo npm install__ (*nix systems) or __npm install__ (Windows systems)
+4. Go to /Server/seeds.  Run __node seed.js__
+5. Go to /Web in a command line and run __sudo npm install__ (*nix systems) or __npm install__ (Windows systems)
  
 # Running the Application #
 1. Go to /Server in a command line and run __sails lift__
