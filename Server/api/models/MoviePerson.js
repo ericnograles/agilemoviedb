@@ -5,15 +5,15 @@ var MoviePerson = {
     tableName: 'MoviePerson',
     attributes: {
         movieId: {
-            type: 'STRING',
+            type: 'INTEGER',
             required: true
         },
         personId: {
-            type: 'STRING',
+            type: 'INTEGER',
             required: true
         },
         role: {
-            type: 'DATE',
+            type: 'STRING',
             required: true
         },
         type: {

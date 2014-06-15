@@ -5,6 +5,11 @@ var MovieDTO = require('../dto/MovieDTO');
 var Movie = {
     tableName: 'Movie',
     attributes: {
+        movieId: {
+            type: 'INTEGER',
+            required: true,
+            unique: true
+        },
         name: {
             type: 'STRING',
             required: true

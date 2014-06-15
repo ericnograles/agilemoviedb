@@ -5,6 +5,11 @@ var PersonDTO = require('../dto/PersonDTO');
 var Person = {
     tableName: 'Person',
     attributes: {
+        personId: {
+            type: 'INTEGER',
+            required: true,
+            unique: true
+        },
         firstName: {
             type: 'STRING',
             required: true
@@ -18,13 +23,14 @@ var Person = {
             required: true
         },
         nationality: 'STRING',
-        grossEarnings: 'DOUBLE',
+        grossEarnings: 'FLOAT',
 
         /**
          * Convert an instance of this model to a DTO
          */
         toDTO: function() {
             var dto = new PersonDTO();
+            dto.personId = this.personId;
             dto.firstName = this.firstName;
             dto.lastName = this.lastName;
             dto.dateOfBirth = this.dateOfBirth;
