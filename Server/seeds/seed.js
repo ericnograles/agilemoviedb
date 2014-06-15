@@ -15,6 +15,7 @@ var mongoUrl = 'mongodb://' +
     adaptersConfig.adapters.mongo.user + ':' + adaptersConfig.adapters.mongo.password + '@' +
     adaptersConfig.adapters.mongo.host + ':' + adaptersConfig.adapters.mongo.port + '/' +
     adaptersConfig.adapters.mongo.database;
+
 mongoAdapter.database = adaptersConfig.adapters.mongo.database;
 mongoAdapter.host = adaptersConfig.adapters.mongo.host;
 mongoAdapter.port = adaptersConfig.adapters.mongo.port;
@@ -51,8 +52,6 @@ var seedMovie = function() {
                             }
                             else {
                                 console.log('Successfully inserted Movies');
-                                // Spit back the literal object representations of the movies
-                                // As further processes may need attributes as a reference back to the store
                                 collection.find().done(function(err, existingMovies) {
                                     fulfill(existingMovies);
                                 });

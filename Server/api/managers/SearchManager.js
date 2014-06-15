@@ -3,6 +3,7 @@ var Promise = require('promise');
 var MovieDTO = require('../dto/MovieDTO');
 var PersonDTO = require('../dto/PersonDTO');
 var SearchResultDTO = require('../dto/SearchResultDTO');
+var CastCrewDTO = require('../dto/CastCrewDTO');
 
 /**
  * The Manager layer acts as an intermediary between controllers and the domain
@@ -19,41 +20,67 @@ function SearchManager() {
  */
 SearchManager.prototype.searchByMovie = function (movieText) {
     var movieDtos = [];
+    var self = this;
     return new Promise(
         function (fulfill, reject) {
-            Movie.find(
-                {
-                    or: [
-                        { like: { name: '%' + movieText + '%' }}
-                    ]
-                })
+            Movie.find({ or: [ { like: { name: '%' + movieText + '%' }} ] })
                 .done(function (err, movies) {
+                    var movieIds = [];
                     if (err || _.isUndefined(movies)) {
                         reject(err || movies);
                     }
                     else {
-                        // Find movie persons associated to the movie
                         _.each(movies, function (movie) {
                             var movieDto = new MovieDTO();
-                            MoviePerson.find({ movieId: movie.id})
-                                .done(function (err, moviePersons) {
-                                    _.each(moviePersons, function (moviePerson) {
-                                        if (moviePerson.type === 'Cast') {
-                                            movie.cast.push(moviePerson);
-                                        }
-                                        else if (moviePerson.type === 'Crew') {
-                                            movie.crew.push(moviePerson);
-                                        }
-                                    });
-                                    // Add the DTO
-                                    movieDto.fromEntity(movie);
-                                    movieDtos.push(movieDto);
-                                });
+                            // Add the DTO
+                            movieDto.fromEntity(movie);
+                            movieDtos.push(movieDto);
+                            movieIds.push(movie.movieId);
                         });
-                        // Resolve the fully formed array
-                        fulfill(movieDtos);
+
+                        // Get cast and crew
+                        MoviePerson.find({ movieId: movieIds })
+                            .done(function(err, moviePersons) {
+                                var personIds = [];
+                                _.each(moviePersons, function(moviePerson) {
+                                    personIds.push(moviePerson.personId);
+                                    var castCrewDto = new CastCrewDTO();
+                                    castCrewDto.personId = moviePerson.personId;
+                                    castCrewDto.role = moviePerson.role;
+                                    var movieDto = _.find(movieDtos, function(movieDto) { return movieDto.movieId === moviePerson.movieId });
+                                    if (moviePerson.type === 'Cast') {
+                                        movieDto.cast.push(castCrewDto);
+                                    }
+                                    else if (moviePerson.type === 'Crew') {
+                                        movieDto.crew.push(castCrewDto);
+                                    }
+                                });
+
+                                Person.find({ personId: personIds })
+                                    .done(function(err, persons) {
+                                        _.each(persons, function(person) {
+                                            _.each(movieDtos, function(movieDto) {
+                                                var matchedCast = _.find(movieDto.cast, function(castDto) { return castDto.personId === person.personId });
+                                                var matchedCrew = _.find(movieDto.crew, function(crewDto) { return crewDto.personId === person.personId });
+                                                if (!_.isUndefined(matchedCast)){
+                                                    matchedCast.firstName = person.firstName;
+                                                    matchedCast.lastName = person.lastName;
+                                                    matchedCast.displayName = person.lastName + ', ' + person.firstName;
+                                                }
+                                                if (!_.isUndefined(matchedCrew)){
+                                                    matchedCrew.firstName = person.firstName;
+                                                    matchedCrew.lastName = person.lastName;
+                                                    matchedCrew.displayName = person.lastName + ', ' + person.firstName;
+                                                }
+                                            });
+                                        });
+                                        fulfill(movieDtos);
+                                    });
+                            }
+                        );
                     }
-                });
+                }
+            );
         }
     );
 };

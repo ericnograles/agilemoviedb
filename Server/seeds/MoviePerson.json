@@ -42,14 +42,14 @@
         "type": "Cast"
     },
     {
-        "movieId": 6,
-        "personId": 1,
+        "movieId": 1,
+        "personId": 6,
         "role": "Director",
         "type": "Crew"
     },
     {
-        "movieId": 7,
-        "personId": 5,
+        "movieId": 5,
+        "personId": 7,
         "role": "Director",
         "type": "Crew"
     }
