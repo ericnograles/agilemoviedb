@@ -7,6 +7,10 @@ This is a sample learning application to demonstrate the capabilities of the MEA
 1. [Node.js](http://www.nodejs.org) (for *nix systems, don't forget to install npm)
 2. [MongoDB](http://www.mongodb.org/downloads)
 
+# Suggested Development Tools #
+1. [WebStorm](http://www.jetbrains.com/webstorm/) -- also install the Mongo Plugin
+2. [MongoVue](http://www.mongovue.com/downloads/) -- for Windows systems -- in lieu of WebStorm's Mongo plugin, use this to browse your local Mongo instance
+
 # Prerequisite Steps #
 1. Clone repo
 2. In a command line run __sudo npm install -g bower grunt-cli karma__ (*nix systems) or __npm npm install -g bower grunt-cli karma__
