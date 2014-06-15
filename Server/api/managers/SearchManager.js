@@ -60,6 +60,7 @@ SearchManager.prototype.searchByMovie = function (movieText) {
                                     .done(function(err, persons) {
                                         _.each(persons, function(person) {
                                             _.each(movieDtos, function(movieDto) {
+                                                // TODO: Do a filter instead of a find.  A Person can play multiple roles
                                                 var matchedCast = _.find(movieDto.cast, function(castDto) { return castDto.personId === person.personId });
                                                 var matchedCrew = _.find(movieDto.crew, function(crewDto) { return crewDto.personId === person.personId });
                                                 if (!_.isUndefined(matchedCast)){
