@@ -1,0 +1,58 @@
+[
+    {
+        "personId": 1,
+        "firstName": "Al",
+        "lastName": "Pacino",
+        "dateOfBirth": "1940-04-25T18:25:43-05:00",
+        "nationality": "Italian",
+        "grossEarnings": 250000000.00
+    },
+    {
+        "personId": 2,
+        "firstName": "Marlon",
+        "lastName": "Brando",
+        "dateOfBirth": "1924-04-03T18:25:43-05:00",
+        "nationality": "American",
+        "grossEarnings": 280000000.00
+    },
+    {
+        "personId": 3,
+        "firstName": "Eric",
+        "lastName": "Idle",
+        "dateOfBirth": "1943-03-29T18:25:43-05:00",
+        "nationality": "English",
+        "grossEarnings": 80000000.00
+    },
+    {
+        "personId": 4,
+        "firstName": "Mark",
+        "lastName": "Hamill",
+        "dateOfBirth": "1951-09-25T18:25:43-05:00",
+        "nationality": "American",
+        "grossEarnings": 123000000.00
+    },
+    {
+        "personId": 5,
+        "firstName": "Harrison",
+        "lastName": "Ford",
+        "dateOfBirth": "1942-07-14T18:25:43-05:00",
+        "nationality": "Italian",
+        "grossEarnings": 250000000.00
+    },
+    {
+        "personId": 6,
+        "firstName": "Francis",
+        "lastName": "Ford Coppola",
+        "dateOfBirth": "1939-04-07T18:25:43-05:00",
+        "nationality": "American",
+        "grossEarnings": 300000000.00
+    },
+    {
+        "personId": 7,
+        "firstName": "Steven",
+        "lastName": "Spielberg",
+        "dateOfBirth": "1946-12-18T18:25:43-05:00",
+        "nationality": "American",
+        "grossEarnings": 400000000.00
+    }
+]

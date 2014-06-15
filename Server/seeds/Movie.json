@@ -1,20 +1,37 @@
 [
     {
+        "movieId": 1,
         "name": "The Godfather",
         "releaseDate": "1975-04-21T18:25:43-05:00",
         "rating": "R",
         "grossEarnings": 1200000000.00
     },
     {
+        "movieId": 2,
         "name": "Star Wars",
         "releaseDate": "1977-01-21T18:25:43-05:00",
         "rating": "PG-13",
         "grossEarnings": 1400000000.00
     },
     {
+        "movieId": 3,
         "name": "Monty Python and the Quest for the Holy Grail",
         "releaseDate": "1972-01-21T18:25:43-05:00",
         "rating": "R",
         "grossEarnings": 700000000.00
+    },
+    {
+        "movieId": 4,
+        "name": "Heat",
+        "releaseDate": "1994-02-21T18:25:43-05:00",
+        "rating": "R",
+        "grossEarnings": 300000000.00
+    },
+    {
+        "movieId": 5,
+        "name": "Raiders of the Lost Ark",
+        "releaseDate": "1980-08-01T18:25:43-05:00",
+        "rating": "R",
+        "grossEarnings": 1900000000.00
     }
 ]

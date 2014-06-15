@@ -1,0 +1,56 @@
+[
+    {
+        "movieId": 1,
+        "personId": 1,
+        "role": "Michael Corleone",
+        "type": "Cast"
+    },
+    {
+        "movieId": 1,
+        "personId": 2,
+        "role": "Vito Corleone",
+        "type": "Cast"
+    },
+    {
+        "movieId": 2,
+        "personId": 4,
+        "role": "Luke Skywalker",
+        "type": "Cast"
+    },
+    {
+        "movieId": 2,
+        "personId": 5,
+        "role": "Han Solo",
+        "type": "Cast"
+    },
+    {
+        "movieId": 3,
+        "personId": 3,
+        "role": "Sir Robin",
+        "type": "Cast"
+    },
+    {
+        "movieId": 4,
+        "personId": 1,
+        "role": "Vincent Hanna",
+        "type": "Cast"
+    },
+    {
+        "movieId": 5,
+        "personId": 5,
+        "role": "Indiana Jones",
+        "type": "Cast"
+    },
+    {
+        "movieId": 6,
+        "personId": 1,
+        "role": "Director",
+        "type": "Crew"
+    },
+    {
+        "movieId": 7,
+        "personId": 5,
+        "role": "Director",
+        "type": "Crew"
+    }
+]
