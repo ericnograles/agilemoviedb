@@ -11,7 +11,7 @@ This is a sample learning application to demonstrate the capabilities of the MEA
 1. Clone repo
 2. In a command line run __sudo npm install -g bower grunt-cli karma__ (*nix systems) or __npm npm install -g bower grunt-cli karma__
 3. Go to /Server in a command line and run __sudo npm install__ (*nix systems) or __npm install__ (Windows systems)
-4. Go to /Server/seeds.  Run __node seed.js__
+4. Go to /Server/seeds.  Run __/usr/bin/node seed.js__ (*nix systems) or __node seed.js__ (Windows systems)
 5. Go to /Web in a command line and run __sudo npm install__ (*nix systems) or __npm install__ (Windows systems)
  
 # Running the Application #
