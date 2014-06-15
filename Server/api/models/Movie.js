@@ -17,7 +17,7 @@ var Movie = {
             type: 'STRING',
             required: true
         },
-        grossEarnings: 'DOUBLE',
+        grossEarnings: 'FLOAT',
 
         /**
          * Converts a Movie model instance to a MovieDTO

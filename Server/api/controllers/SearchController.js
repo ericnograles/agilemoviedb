@@ -52,7 +52,7 @@ module.exports = {
 
   /**
    * Action blueprints:
-   *    `/search/byMovie`
+   *    `/search/byMovie/{someSearchText}`
    */
    byMovie: function (req, res) {
     
@@ -65,7 +65,7 @@ module.exports = {
 
   /**
    * Action blueprints:
-   *    `/search/byActor`
+   *    `/search/byActor/{someSearchText}`
    */
    byActor: function (req, res) {
     

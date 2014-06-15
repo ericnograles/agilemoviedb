@@ -1,8 +1,14 @@
 [
     {
         "name": "The Godfather",
-        "releaseDate": "2012-04-21T18:25:43-05:00",
+        "releaseDate": "1975-04-21T18:25:43-05:00",
         "rating": "R",
         "grossEarnings": 1200000000.00
+    },
+    {
+        "name": "Star Wars",
+        "releaseDate": "1977-01-21T18:25:43-05:00",
+        "rating": "R",
+        "grossEarnings": 1400000000.00
     }
 ]

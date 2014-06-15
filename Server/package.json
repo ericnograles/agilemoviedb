@@ -5,15 +5,19 @@
   "description": "The Agile Movie Database",
   "dependencies": {
     "bcrypt": "^0.7.8",
+    "body-parser": "^1.3.1",
     "ejs": "0.8.4",
+    "express": "^4.4.3",
     "grunt": "0.4.1",
+    "lodash": "^2.4.1",
     "node-mongo-seeds": "^1.0.13",
     "optimist": "0.3.4",
     "promise": "^5.0.0",
     "sails": "0.9.16",
     "sails-disk": "~0.9.0",
     "sails-mongo": "^0.9.8",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "waterline": "^0.9.16"
   },
   "scripts": {
     "start": "node app.js",
