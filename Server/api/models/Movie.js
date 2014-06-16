@@ -22,20 +22,7 @@ var Movie = {
             type: 'STRING',
             required: true
         },
-        grossEarnings: 'FLOAT',
-
-        /**
-         * Converts a Movie model instance to a MovieDTO
-         */
-        toDTO: function() {
-            var dto = new MovieDTO();
-            dto.id = this.id;
-            dto.name = this.name;
-            dto.releaseDate = this.releaseDate;
-            dto.rating = this.rating;
-            dto.grossEarnings = this.grossEarnings;
-            return dto;
-        }
+        grossEarnings: 'FLOAT'
     }
 };
 

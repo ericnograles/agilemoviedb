@@ -23,21 +23,7 @@ var Person = {
             required: true
         },
         nationality: 'STRING',
-        grossEarnings: 'FLOAT',
-
-        /**
-         * Convert an instance of this model to a DTO
-         */
-        toDTO: function() {
-            var dto = new PersonDTO();
-            dto.personId = this.personId;
-            dto.firstName = this.firstName;
-            dto.lastName = this.lastName;
-            dto.dateOfBirth = this.dateOfBirth;
-            dto.nationality = this.nationality;
-            dto.grossEarnings = this.grossEarnings;
-            return dto;
-        }
+        grossEarnings: 'FLOAT'
     }
 };
 
