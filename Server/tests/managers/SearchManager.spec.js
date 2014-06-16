@@ -81,12 +81,12 @@ describe('SearchManager', function(){
 
                         // Assert that an array of movieDto's was created
                         assert(movieDtos.length > 0);
-                        assert(movieDtos[0].name === MovieData[0].name, 'Invalid movie name');
-                        assert(movieDtos[0].movieId === MovieData[0].movieId);
-                        assert(movieDtos[0].releaseDate === MovieData[0].releaseDate);
-                        assert(movieDtos[0].rating === MovieData[0].rating);
-                        assert(movieDtos[0].grossEarnings === MovieData[0].grossEarnings);
-                        assert(movieDtos[0].cast.length === 2);
+                        assert(movieDtos[0].name === MovieData[0].name, 'Invalid name');
+                        assert(movieDtos[0].movieId === MovieData[0].movieId, 'Invalid movieId');
+                        assert(movieDtos[0].releaseDate === MovieData[0].releaseDate, 'Invalid releaseDate');
+                        assert(movieDtos[0].rating === MovieData[0].rating, 'Invalid rating');
+                        assert(movieDtos[0].grossEarnings === MovieData[0].grossEarnings, 'Invalid grossEarnings');
+                        assert(movieDtos[0].cast.length === 3, 'Wrong number of cast members');
                         done();
                     },
                     function(error) {
