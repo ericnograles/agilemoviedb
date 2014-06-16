@@ -86,7 +86,7 @@ describe('SearchManager', function(){
                         assert(movieDtos[0].releaseDate === MovieData[0].releaseDate, 'Invalid releaseDate');
                         assert(movieDtos[0].rating === MovieData[0].rating, 'Invalid rating');
                         assert(movieDtos[0].grossEarnings === MovieData[0].grossEarnings, 'Invalid grossEarnings');
-                        assert(movieDtos[0].cast.length === 3, 'Wrong number of cast members');
+                        assert(movieDtos[0].cast.length === 2, 'Wrong number of cast members');
                         done();
                     },
                     function(error) {
