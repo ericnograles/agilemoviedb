@@ -1,0 +1,18 @@
+[
+    {
+        "personId": 1,
+        "firstName": "Al",
+        "lastName": "Pacino",
+        "dateOfBirth": "1940-04-25T18:25:43-05:00",
+        "nationality": "Italian",
+        "grossEarnings": 250000000.00
+    },
+    {
+        "personId": 2,
+        "firstName": "Marlon",
+        "lastName": "Brando",
+        "dateOfBirth": "1924-04-03T18:25:43-05:00",
+        "nationality": "American",
+        "grossEarnings": 280000000.00
+    }
+]

@@ -36,60 +36,19 @@ module.exports = {
               searchManager.searchByPersonText(req.params.id).then(
                   function(personDtos) {
                       searchResultDto.fromPersonDtos(personDtos);
+                      searchResultDto.searchText = req.params.id;
                       return res.json(searchResultDto);
                   },
                   function(error){
-                      return res.json('Oh snap, something horrible happened.');
+                      res.serverError(error);
                   }
               )
           },
           function(error) {
-              return res.json('Oh snap, something horrible happened.');
+              res.serverError(error);
           }
       )
   },
-
-
-  /**
-   * Action blueprints:
-   *    `/search/byMovie/{someSearchText}`
-   */
-   byMovie: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'byMovie'
-    });
-  },
-
-
-  /**
-   * Action blueprints:
-   *    `/search/byActor/{someSearchText}`
-   */
-   byActor: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'byActor'
-    });
-  },
-
-
-  /**
-   * Action blueprints:
-   *    `/search/byReleaseYear`
-   */
-   byReleaseYear: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'byReleaseYear'
-    });
-  },
-
-
-
 
   /**
    * Overrides for the settings in `config/controllers.js`

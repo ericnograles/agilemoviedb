@@ -1,0 +1,14 @@
+[
+    {
+        "movieId": 1,
+        "personId": 1,
+        "role": "Michael Corleone",
+        "type": "Cast"
+    },
+    {
+        "movieId": 1,
+        "personId": 2,
+        "role": "Vito Corleone",
+        "type": "Cast"
+    }
+]

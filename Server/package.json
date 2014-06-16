@@ -26,5 +26,14 @@
   "main": "app.js",
   "repository": "",
   "author": "Eric Nograles",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "assert": "^1.1.1",
+    "grunt-mocha-test": "^0.11.0",
+    "mocha": "^1.20.1",
+    "nock": "^0.34.1",
+    "proxyquire": "^1.0.1",
+    "q": "^1.0.1",
+    "sinon": "^1.10.2"
+  }
 }
