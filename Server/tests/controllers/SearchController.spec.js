@@ -28,8 +28,8 @@ describe('SearchController', function(){
         // Mock res
         // Create fields to hold the res responses and server errors
         res = {
-            jsonObject: '',
-            errorObject: '',
+            jsonObject: null,
+            errorObject: null,
 
             json: function(object) {
                 this.jsonObject = JSON.stringify(object);
@@ -43,7 +43,6 @@ describe('SearchController', function(){
     });
 
     describe('on failure of getting data from SearchManager', function() {
-
         /**
          * Setup Mock Managers for failed calls
          */
@@ -52,8 +51,8 @@ describe('SearchController', function(){
             // Mock SearchManager
             function SearchManager() {
                 var searchByMovie = function(movieText) {
-                    var then = function(cb) {
-                        return cb(null, 'Oh noes!')
+                    var then = function(cb, error) {
+                        return error('Oh noes!')
                     };
 
                     return {
@@ -62,8 +61,8 @@ describe('SearchController', function(){
                 };
 
                 var searchByPersonText = function(personText) {
-                    var then = function(cb) {
-                        return cb(null, 'Oh noes!');
+                    var then = function(cb, error) {
+                        return error('Oh noes!');
                     };
 
                     return {
@@ -79,11 +78,16 @@ describe('SearchController', function(){
 
             // Setup the Controller
             SearchController = proxyquire('../../api/controllers/SearchController', { '../managers/SearchManager': SearchManager });
+            res.jsonObject = null;
+            res.errorObject = null;
         });
 
         it('byActorOrMovie should report a server error', function() {
             SearchController.byActorOrMovie(req, res);
-            assert(!_.isUndefined(res.jsonObject));
+            assert(_.isNull(res.jsonObject));
+            assert(!_.isNull(res.errorObject));
+            assert(res.errorObject === 'Oh noes!');
+
         });
 
     });
@@ -150,11 +154,14 @@ describe('SearchController', function(){
 
             // Setup the Controller
             SearchController = proxyquire('../../api/controllers/SearchController', { '../managers/SearchManager': SearchManager });
+            res.jsonObject = null;
+            res.errorObject = null;
         });
 
         it('byActorOrMovie should return results', function(){
             SearchController.byActorOrMovie(req, res);
-            assert(!_.isUndefined(res.jsonObject));
+            assert(!_.isNull(res.jsonObject));
+            assert(_.isNull(res.errorObject));
         });
     });
 });
