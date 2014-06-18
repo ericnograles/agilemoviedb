@@ -2,7 +2,6 @@ var _ = require('underscore');
 var Promise = require('promise');
 var MovieDTO = require('../dto/MovieDTO');
 var PersonDTO = require('../dto/PersonDTO');
-var SearchResultDTO = require('../dto/SearchResultDTO');
 var CastCrewDTO = require('../dto/CastCrewDTO');
 
 /**
