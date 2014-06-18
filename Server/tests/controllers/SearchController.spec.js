@@ -27,10 +27,12 @@ describe('SearchController', function(){
         // Mock res
         // Create fields to hold the res responses and server errors
         res = {
+            rawObject: null,
             jsonObject: null,
             errorObject: null,
 
             json: function(object) {
+                this.rawObject = object;
                 this.jsonObject = JSON.stringify(object);
                 return object;
             },
@@ -77,6 +79,7 @@ describe('SearchController', function(){
 
             // Setup the Controller
             SearchController = proxyquire('../../api/controllers/SearchController', { '../managers/SearchManager': SearchManager });
+            res.rawObject = null;
             res.jsonObject = null;
             res.errorObject = null;
         });
@@ -153,14 +156,19 @@ describe('SearchController', function(){
 
             // Setup the Controller
             SearchController = proxyquire('../../api/controllers/SearchController', { '../managers/SearchManager': SearchManager });
+            res.rawObject = null;
             res.jsonObject = null;
             res.errorObject = null;
         });
 
         it('byActorOrMovie should return results', function(){
             SearchController.byActorOrMovie(req, res);
+            assert(!_.isNull(res.rawObject));
             assert(!_.isNull(res.jsonObject));
             assert(_.isNull(res.errorObject));
+            assert(res.rawObject.searchText === 'wedding');
+            assert(res.rawObject.movieDtos.length === 1);
+            assert(res.rawObject.personDtos.length === 1);
         });
     });
 });
