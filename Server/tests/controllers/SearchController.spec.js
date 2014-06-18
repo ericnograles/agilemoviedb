@@ -169,6 +169,18 @@ describe('SearchController', function(){
             assert(res.rawObject.searchText === 'wedding');
             assert(res.rawObject.movieDtos.length === 1);
             assert(res.rawObject.personDtos.length === 1);
+            assert(res.rawObject.personDtos[0].firstName === 'Owen', 'PersonDTO.firstName');
+            assert(res.rawObject.personDtos[0].lastName === 'Wilson', 'PersonDTO.lastName');
+            assert(res.rawObject.personDtos[0].displayName === 'Wilson, Owen', 'PersonDTO.displayName');
+            assert(res.rawObject.personDtos[0].nationality === 'American', 'PersonDTO.nationality');
+            assert(res.rawObject.personDtos[0].grossEarnings === 133700.00, 'PersonDTO.grossEarnings');
+            assert(res.rawObject.movieDtos[0].name === 'Wedding Crashers', 'MovieDTO.name');
+            assert(res.rawObject.movieDtos[0].rating === 'R', 'MovieDTO.rating')
+            assert(res.rawObject.movieDtos[0].grossEarnings === 1337000.00, 'MovieDTO.grossEarnings');
+            assert(res.rawObject.movieDtos[0].cast[0].lastName === 'Wilson', 'MovieDTO.cast.lastName');
+            assert(res.rawObject.movieDtos[0].cast[0].firstName === 'Owen', 'MovieDTO.cast.firstName');
+            assert(res.rawObject.movieDtos[0].cast[0].role === 'John Beckwith', 'MovieDTO.cast.role');
+            assert(res.rawObject.movieDtos[0].cast[0].displayName === 'Wilson, Owen', 'MovieDTO.cast.lastName');
         });
     });
 });
