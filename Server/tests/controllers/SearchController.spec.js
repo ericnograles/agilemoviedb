@@ -8,7 +8,6 @@ var _ = require('underscore'),
     Promise = require('promise');
 
 // Mock objects
-// Mock objects
 var req, res,
     SearchController;
 
