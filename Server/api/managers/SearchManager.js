@@ -92,13 +92,14 @@ SearchManager.prototype.searchByMovie = function (movieText) {
  */
 SearchManager.prototype.searchByPersonText = function (personText) {
     var personDtos = [];
+    var personTextLower = personText.toLowerCase();
     return new Promise(
         function (fulfill, reject) {
             Person.find({
-                or: [
+/*                or: [
                     { like: { firstName: '%' + personText + '%'} },
                     { like: { lastName: '%' + personText + '%'} }
-                ]
+                ]*/
             })
                 .done(function (err, persons) {
                     if (err || _.isUndefined(persons)) {
@@ -106,9 +107,17 @@ SearchManager.prototype.searchByPersonText = function (personText) {
                     }
                     else {
                         _.each(persons, function (person) {
-                            var personDto = new PersonDTO();
-                            personDto.fromEntity(person);
-                            personDtos.push(personDto);
+                            // Find a match on firstName, lastName, or a concat of both
+                            // No native way to do this in Waterline (yet)
+                            var fullName = person.firstName + ' ' + person.lastName;
+                            if (person.firstName.toLowerCase().indexOf(personTextLower) > -1 ||
+                                person.lastName.toLowerCase().indexOf(personTextLower) > -1 ||
+                                fullName.toLowerCase().indexOf(personTextLower) > -1
+                                ) {
+                                var personDto = new PersonDTO();
+                                personDto.fromEntity(person);
+                                personDtos.push(personDto);
+                            }
                         });
                         fulfill(personDtos);
                     }

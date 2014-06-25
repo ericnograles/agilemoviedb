@@ -202,8 +202,8 @@ module.exports = function (grunt) {
                 options: {
                     replacements: [
                         {
-                            pattern: '$BIG_BLUSTER_API',
-                            replacement: 'http://localhost:1337/api/'
+                            pattern: '$AMDB_API',
+                            replacement: 'http://localhost:1337'
                         }
                     ]
                 }
@@ -215,8 +215,8 @@ module.exports = function (grunt) {
                 options: {
                     replacements: [
                         {
-                            pattern: '$BIG_BLUSTER_API',
-                            replacement: 'http://bigbluster.nodejitsu.com/api/'
+                            pattern: '$AMDB_API',
+                            replacement: 'http://localhost:1337'
                         }
                     ]
                 }
@@ -541,6 +541,7 @@ module.exports = function (grunt) {
                 tasks: [ 'index:build' ]
             },
 
+
             /**
              * When our templates change, we only rewrite the template cache.
              */
@@ -572,8 +573,15 @@ module.exports = function (grunt) {
                 options: {
                     livereload: false
                 }
-            }
+            },
 
+            /**
+             * Re-run string-replace
+             */
+            string_replace: {
+                files: [ '<%= build_dir %>/src/common/config/config.js' ],
+                tasks: ['string-replace:local']
+            }
         }
     };
 

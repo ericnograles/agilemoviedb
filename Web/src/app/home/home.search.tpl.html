@@ -1,12 +1,25 @@
-<div class="container vert-text-black">
+<div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-center">
-            <div class="form-horizontal">
-                <form ng-submit="searchAMDB()">
-                    <input type="text" class="form-control" placeholder="Enter the name of an actor or movie (or just the bits you remember)" ng-model="searchText" /><br />
-                    <input type="submit" class="btn btn-primary" value="Search">
-                </form>
-            </div>
+        <div class="form-inline">
+            <input type="text" class="form-control" placeholder="Enter the name of an actor or movie (or just the bits you remember)" style="width: 93%;" ng-model="searchText" />
+            <button class="btn btn-primary" ng-click="searchAMDB()" style="margin-left: auto; margin-right: auto;">Search</button>
+        </div>
+    </div>
+    <div class="row">
+        <br/>
+    </div>
+    <div class="row" style="background: white; opacity: 0.75" ng-if="searchResult !== null">
+        <div class="col-md-4">
+            <h3>Movies that contain '{{searchResult.searchText}}':</h3>
+            <ul>
+                <li ng-repeat="movie in searchResult.movies">{{movie.name}}</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>People that contain '{{searchResult.searchText}}':</h3>
+            <ul>
+                <li ng-repeat="person in searchResult.persons">{{person.displayName}}</li>
+            </ul>
         </div>
     </div>
 </div>

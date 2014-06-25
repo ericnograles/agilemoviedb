@@ -19,10 +19,14 @@ angular.module('amdb.home', [
             });
     })
 
-    .controller('SearchCtrl', function($scope, $http, $log) {
+    .controller('SearchCtrl', function($scope, $http, $log, searchService) {
         $log.info('SearchCtrl');
+        $scope.searchResult = null;
         $scope.searchAMDB = function() {
             $log.info('Search - Search AMDB - ' + $scope.searchText);
+            searchService.searchByActorOrMovie($scope.searchText).promise.then(function(searchResult){
+                $scope.searchResult = searchResult;
+            });
         };
     })
 ;

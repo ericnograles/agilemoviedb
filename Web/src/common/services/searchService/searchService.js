@@ -2,21 +2,22 @@
  * Integration with the BigBluster API (aka the /Server Sails.js project)
  * Awesomeness shall happen here!...
  */
-angular.module('amdb.services.searchService',
+angular.module('amdb.services.search',
     [
+        'amdb.models.SearchResult',
         'amdb.constants',
         'amdb.config'
     ])
-    .factory('SearchService', function ($q, $http, $log, END_POINTS, ENVIRONMENT) {
+    .factory('searchService', function ($q, $http, $log, END_POINTS, ENVIRONMENT, SearchResult) {
         var apiRoot = ENVIRONMENT.API_ROOT;
-        var searchUrl = END_POINTS.search.searchAMDB;
+        var searchUrl = END_POINTS.search.byActorOrMovie;
 
         /**
          * Searches AMDB movies and actors for the search string specified
          * @param searchString
          */
-        var searchAMDB = function(searchString) {
-            var url = apiRoot + searchUrl + searchString;
+        var searchByActorOrMovie = function(searchString) {
+            var url = apiRoot + searchUrl + '/' + searchString;
             var deferred = $q.defer();
 
             $http({
@@ -26,12 +27,14 @@ angular.module('amdb.services.searchService',
             })
                 .success(function(dto) {
                     // Transform DTO to model
+                    var searchResult = new SearchResult();
+                    searchResult.fromDTO(dto);
 
                     // Pass to the deferred
-
+                    deferred.resolve(searchResult);
                 })
                 .error(function(data, status, headers, config) {
-
+                    deferred.reject('Oh noes!');
                 });
 
 
@@ -39,7 +42,7 @@ angular.module('amdb.services.searchService',
         };
 
         return {
-            searchAMDB: searchAMDB
+            searchByActorOrMovie: searchByActorOrMovie
         };
     })
 ;

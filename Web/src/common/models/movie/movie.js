@@ -1,5 +1,7 @@
-angular.module('amdb.models.Movie', [])
-    .factory('Movie', function() {
+angular.module('amdb.models.Movie', [
+    'amdb.models.CastCrew'
+])
+    .factory('Movie', function(CastCrew) {
 
         /**
          * The Movie model constructor
@@ -13,9 +15,16 @@ angular.module('amdb.models.Movie', [])
             this.createdDate = new Date();
             this.updatedBy = '';
             this.updatedDate = new Date();
+            this.cast = [];
+            this.crew = [];
         };
 
+        /**
+         * Transforms a Server API MovieDTO to our Movie Model
+         * @param dto
+         */
         Movie.prototype.fromDTO = function(dto) {
+            var self = this;
             this.name = dto.name;
             this.rating = dto.rating;
             this.releaseDate = dto.releaseDate;
@@ -23,21 +32,21 @@ angular.module('amdb.models.Movie', [])
             this.createdDate = dto.createdDate;
             this.updatedBy = dto.updatedBy;
             this.updatedDate = dto.updatedDate;
+
+            // Iterate through Cast
+            _.each(dto.cast, function(castMember){
+                var castCrew = new CastCrew();
+                castCrew.fromDTO(castMember);
+                self.cast.push(castCrew);
+            });
+
+            _.each(dto.crew, function(crewMember){
+                var castCrew = new CastCrew();
+                castCrew.fromDTO(crewMember);
+                self.crew.push(castCrew);
+            });
         };
 
-        Movie.prototype.toDTO = function() {
-            var dto = {
-                name: this.name,
-                rating: this.rating,
-                releaseDate: this.releaseDate,
-                createdBy: this.createdBy,
-                createdDate: this.createdDate,
-                updateBy: this.updatedBy,
-                updatedDate: this.updatedDate
-            };
-
-            return dto;
-        };
 
         return Movie;
     });
