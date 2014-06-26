@@ -1,8 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="form-inline">
-            <input type="text" class="form-control" placeholder="Enter the name of an actor or movie (or just the bits you remember)" style="width: 93%;" ng-model="searchText" />
-            <button class="btn btn-primary" ng-click="searchAMDB()" style="margin-left: auto; margin-right: auto;">Search</button>
+            <form ng-submit="searchAMDB()" class="form-inline">
+                <input type="text" class="form-control" placeholder="Enter the name of an actor or movie (or just the bits you remember)" style="width: 93%;" ng-model="searchText" />
+                <input type="submit" class="btn btn-primary" value="Search" />
+            </form>
         </div>
     </div>
     <div class="row">
