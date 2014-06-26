@@ -1,4 +1,5 @@
-var MovieDTO = require('../dto/MovieDTO');
+var SocketIOConstants = require('../constants/SocketIOConstants');
+
 /**
  * The Movie model
  */
@@ -23,6 +24,17 @@ var Movie = {
             required: true
         },
         grossEarnings: 'FLOAT'
+    },
+
+    // Lifecycle callbacks
+    afterCreate: function(newRecord, next) {
+        sails.io.sockets.emit(SocketIOConstants.EVENT_MOVIE_CREATED, newRecord);
+        next();
+    },
+
+    afterUpdate: function(updatedRecord, next) {
+        sails.io.sockets.emit(SocketIOConstants.EVENT_MOVIE_UPDATED, updatedRecord);
+        next();
     }
 };
 

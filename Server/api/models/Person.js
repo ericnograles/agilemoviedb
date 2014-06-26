@@ -1,4 +1,3 @@
-var PersonDTO = require('../dto/PersonDTO');
 /**
  * The Person model
  */

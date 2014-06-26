@@ -1,6 +1,3 @@
-require('underscore');
-var CastCrewDTO = require('../dto/CastCrewDTO');
-
 /**
  * A DTO to encapsulate all outgoing errors from the API
  * @param User
