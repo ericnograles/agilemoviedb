@@ -68,7 +68,8 @@ module.exports = {
             'vendor/angular-ui-router/release/angular-ui-router.js',
             'vendor/angular-ui-utils/modules/route/route.js',
             'vendor/bootstrap/dist/js/bootstrap.js',
-            'vendor/underscore/underscore.js'
+            'vendor/underscore/underscore.js',
+            'vendor/angular-socket-io/socket.min.js'
         ],
         css: [
         ],

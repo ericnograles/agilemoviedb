@@ -573,14 +573,6 @@ module.exports = function (grunt) {
                 options: {
                     livereload: false
                 }
-            },
-
-            /**
-             * Re-run string-replace
-             */
-            string_replace: {
-                files: [ '<%= build_dir %>/src/common/config/config.js' ],
-                tasks: ['string-replace:local']
             }
         }
     };
