@@ -23,7 +23,17 @@ var Movie = {
             type: 'STRING',
             required: true
         },
-        grossEarnings: 'FLOAT'
+        grossEarnings: 'FLOAT',
+
+        // Instance methods
+        unbiasedCriticism: function() {
+            if(this.name.toLowerCase().indexOf('godfather') > -1) {
+                return 'PHENOMENAL!';
+            }
+            else {
+                return 'It stinks!';
+            }
+        }
     },
 
     // Lifecycle callbacks
