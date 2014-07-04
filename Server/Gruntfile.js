@@ -132,6 +132,7 @@ module.exports = function (grunt) {
     grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
     grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
     grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-mocha-istanbul');
 
     // Project configuration.
     grunt.initConfig({
@@ -166,6 +167,27 @@ module.exports = function (grunt) {
                     reporter: 'spec'
                 },
                 src: ['tests/**/*.spec.js']
+            }
+        },
+
+        mocha_istanbul: {
+            coverage: {
+                src: 'tests', // the folder, not the files,
+                options: {
+                    mask: '**/*.spec.js'
+                }
+            },
+            coveralls: {
+                src: 'tests', // the folder, not the files
+                options: {
+                    coverage:true,
+                    check: {
+                        lines: 75,
+                        statements: 75
+                    },
+                    root: './api', // define where the cover task should consider the root of libraries that are covered by tests
+                    reportFormats: ['html']
+                }
             }
         },
 
@@ -475,6 +497,9 @@ module.exports = function (grunt) {
         'sails-linker:prodStylesJADE',
         'sails-linker:devTplJADE'
     ]);
+
+    // Code Coverage with Mocha and Istanbul (not Constantinople)
+    grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
 
     // When API files are changed:
     // grunt.event.on('watch', function(action, filepath) {

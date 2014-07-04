@@ -29,6 +29,7 @@
   "license": "",
   "devDependencies": {
     "assert": "^1.1.1",
+    "grunt-mocha-istanbul": "^1.5.0",
     "grunt-mocha-test": "^0.11.0",
     "mocha": "^1.20.1",
     "nock": "^0.34.1",
