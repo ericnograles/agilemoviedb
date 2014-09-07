@@ -1,6 +1,5 @@
 /**
- * A DTO to encapsulate all outgoing errors from the API
- * @param User
+ * The DTO for a Movie domain model
  * @constructor
  */
 function MovieDTO() {
@@ -14,8 +13,8 @@ function MovieDTO() {
     this.crew = [];
 }
 
-MovieDTO.prototype.fromEntity = function(movie) {
-    this.id = movie.id
+MovieDTO.prototype.fromMoviePersonEntity = function(movie) {
+    this.id = movie.id;
     this.movieId = movie.movieId;
     this.name = movie.name;
     this.releaseDate = movie.releaseDate;

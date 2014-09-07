@@ -13,7 +13,7 @@ function PersonDTO() {
     this.grossEarnings = 0.00;
 }
 
-PersonDTO.prototype.fromEntity = function(person) {
+PersonDTO.prototype.fromMoviePersonEntity = function(person) {
     this.id = person.id;
     this.firstName = person.firstName;
     this.lastName = person.lastName;
