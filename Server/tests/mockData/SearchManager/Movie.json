@@ -1,6 +1,6 @@
 [
     {
-        "movieId": 1,
+        "id": 1,
         "name": "The Godfather",
         "releaseDate": "1975-04-21T18:25:43-05:00",
         "rating": "R",

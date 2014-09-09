@@ -13,7 +13,7 @@ function MovieDTO() {
     this.crew = [];
 }
 
-MovieDTO.prototype.fromMoviePersonEntity = function(movie) {
+MovieDTO.prototype.fromMovieEntity = function(movie){
     this.id = movie.id;
     this.movieId = movie.movieId;
     this.name = movie.name;

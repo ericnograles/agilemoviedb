@@ -32,7 +32,7 @@ SearchManager.prototype.searchByMovie = function (movieText) {
                                 _.each(movies, function (movie) {
                                     var movieDto = new MovieDTO();
                                     // Add the DTO
-                                    movieDto.fromMoviePersonEntity(movie);
+                                    movieDto.fromMovieEntity(movie);
                                     movieDtos.push(movieDto);
                                 });
 
